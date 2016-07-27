@@ -1,9 +1,11 @@
-# Paper title
+# Isostatic gravity inversion
 
-by
-Author 1,
-Author 2,
-etc
+[B. M. S. Bastos] (http://www.pinga-lab.org/people/marcela.html)<sup>1,2</sup>, 
+[V. C. Oliveira Jr.](http://www.pinga-lab.org/people/oliveira-jr.html)<sup>1</sup>
+
+*<sup>1</sup>Department of Geophysics, Observatório Nacional, Rio de Janeiro, RJ, Brazil.*
+
+*<sup>2</sup>Empresa, RJ, Brazil.*
 
 This paper has been submitted for publication in *Some Journal*.
 
