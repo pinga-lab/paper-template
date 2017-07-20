@@ -21,7 +21,7 @@ CC-BY for data.
 
 1. Create an empty repository on Github (or anywhere else you want). Don't make
    any commits or clone the repository yet.
-2. Install cookiecuter: `conda install -c conda-forge cookiecutter`
+2. Install cookiecutter: `conda install -c conda-forge cookiecutter`
 3. Download the `cookiecuter.json` configuration file from this repository to
    the current directory
 4. Edit the file to reflect your project
@@ -40,6 +40,9 @@ CC-BY for data.
         git add .
         git commit
         git push
+
+For an example, the folder `sample-paper` was generated using the template with
+the `cookiecutter.json` configuration file.
 
 
 ## Contributing
