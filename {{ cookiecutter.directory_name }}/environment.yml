@@ -1,0 +1,22 @@
+# Setup a basic environment for running Fatiando code
+# Replace "my-paper" with a short name for this environment.
+# Activate the environmet to run your code using "source activate my-paper"
+# or "activate my-paper" on Windows.
+# List the packages you want here. You can specify particular versions with
+# "=". For pip installed packages, use "==".
+name: my-paper
+dependencies:
+    - python=2.7
+    - pip
+    - future
+    - numpy
+    - scipy
+    - matplotlib
+    - basemap
+    - pillow
+    - numba
+    - jupyter
+    - mayavi
+    - seaborn
+    - pip:
+        - fatiando==0.4
