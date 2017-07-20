@@ -25,8 +25,9 @@ CC-BY for data.
 3. Download the `cookiecuter.json` configuration file from this repository to
    the current directory
 4. Edit the file to reflect your project
-5. Generate your project folder by running `cookiecutter . --no-input` (we'll
-   refer to it as `sample-paper`)
+5. Generate your project folder from the template by running
+   `cookiecutter gh:pinga-lab/paper-template --no-input` (we'll refer to it as
+   `sample-paper`)
 6. Enter the folder and start a git repository:
 
         cd sample-paper
