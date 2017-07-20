@@ -4,17 +4,17 @@
 
 The manuscript text is not open source. The authors reserve the rights to the
 article content, which is currently submitted for publication in
-Geophysical Journal International.
+{{ cookiecutter.journal }}.
 
 ## Code (BSD 3-clause)
 
-All source code is made available under the BSD 3-clause license. You can
-freely use and modify the code, without warranty, so long as you provide
-attribution to the authors.
+All source code is available under the BSD 3-clause license. You can freely use
+and modify the code, without warranty, so long as you provide attribution to
+the authors.
 
 ### BSD 3-clause license
 
-Copyright (c) 2017 {'Leonardo Uieda': 'http://www.leouieda.com', 'Vanderlei C. Oliveira Jr.': 'http://www.pinga-lab.org/people/oliveira-jr.html'}.
+Copyright (c) {{ cookiecutter.year }} {% for name in cookiecutter.authors %}{{ name }}{% if not loop.last %}, {% endif %}{% endfor %}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

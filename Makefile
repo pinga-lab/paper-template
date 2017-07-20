@@ -1,5 +1,5 @@
-bake:
+bake: clean
 	cookiecutter . --no-input
 
 clean:
-	rm -rf openscience-paper
+	rm -rf sample-paper

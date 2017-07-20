@@ -1,13 +1,22 @@
-NOTEBOOKS := $(shell find . -maxdepth 1 -name '*.ipynb')
+NOTEBOOKS := $(wildcard *.ipynb)
 NOTEBOOK_PDFS := $(NOTEBOOKS:.ipynb=.pdf)
 
-all: pdf
-
-pdf: $(NOTEBOOK_PDFS)
 
 # Convert the Jupyter notebooks to PDF for offline reading
+pdfs: $(NOTEBOOK_PDFS)
+
 %.pdf: %.ipynb
 	jupyter nbconvert --to pdf $<
+
+# Run tests in the "tests" directory
+test:
+	pytest --doctest-modules -v tests
+
+# Static checks for format and common errors
+check: pep8
+
+pep8:
+	flake8 *.py tests
 
 clean:
 	rm -rf $(NOTEBOOK_PDFS)

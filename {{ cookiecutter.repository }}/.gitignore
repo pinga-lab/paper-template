@@ -1,0 +1,7 @@
+*~
+.*~
+*.pyc
+figures/*-eps-converted-to-pdf.pdf
+manuscript/manuscript.pdf
+.ipynb_checkpoints/
+.cache
