@@ -1,0 +1,71 @@
+\documentclass[twocolumn]{article}
+
+% Use Unicode by default for using special characters
+\usepackage[utf8]{inputenc}
+% Mathematical Symbols and fonts
+\usepackage{amsmath}
+% For inserting figures
+\usepackage{graphicx}
+% To insert URLs on which you can click
+\usepackage{url}
+% Bibliography citations
+\usepackage[round]{natbib}
+% To make two column figures appear in the correct order
+\usepackage{fixltx2e}
+% To make annotations on the sides
+\usepackage{todonotes}
+% To generate dummy text
+\usepackage{lipsum}
+
+% Document metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Title}{
+    A science project
+}
+\newcommand{\Keywords}{
+    Inverse theory;
+    Gravity anomalies and Earth structure;
+    Satellite gravity;
+    South America;
+}
+\title{\Title}
+\author{ 
+    Leonardo Uieda, 
+    Vanderlei C. Oliveira Jr.
+}
+% Metadata for the generated PDF
+\usepackage[pdftex,colorlinks=true]{hyperref}
+\hypersetup{
+    pdftitle={\Title},
+    pdfauthor={ Leonardo Uieda, Vanderlei C. Oliveira Jr. },
+    pdfkeywords={\Keywords},
+    pdfcreator={pdfTeX},
+    allcolors=black,
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+    \maketitle
+
+    \begin{abstract}
+        \lipsum[1]
+    \end{abstract}
+
+    \input{introduction.tex}
+    \input{methods.tex}
+    \input{results.tex}
+    \input{discussion.tex}
+    \input{conclusion.tex}
+
+    \section{Acknowledgments}
+
+    We are indebted to the developers and maintainers of the open-source
+    software without which this work would not have been possible.
+    \textbf{Thank reviewers, editors, and funding agencies.}
+
+    \bibliographystyle{plainnat}
+    \bibliography{references}
+
+\end{document}

@@ -1,0 +1,15 @@
+{
+    "repository": "sample-paper",
+    "github_user": "pinga-lab",
+    "title": "A science project",
+    "year": "2017",
+    "journal": "Geophysical Journal International",
+    "authors": {
+        "Leonardo Uieda": "http://www.leouieda.com",
+        "Vanderlei C. Oliveira Jr.": "http://www.pinga-lab.org/people/oliveira-jr.html"
+    },
+    "python": "2.7",
+    "_copy_without_render": [
+        "figures/*.eps"
+    ]
+}

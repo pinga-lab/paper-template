@@ -1,0 +1,10 @@
+name: {{ cookiecutter.repository }}
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - python={{ cookiecutter.python }}
+    - numpy
+    - matplotlib
+    - jupyter
+    - pytest
