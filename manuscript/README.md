@@ -30,6 +30,11 @@ results.
 
         make show
 
+* Check the text for common mistakes using [proselint](http://proselint.com/)
+  (requires that you have the conda environment activated):
+
+        make lint
+
 * Estimate the number of words in the paper (only counts words in
   `manuscript.tex`):
 

@@ -1,6 +1,9 @@
 *~
 .*~
 *.pyc
+code/*.egg-info/
+code/.pytest_cache/
+code/notebooks/*.nbconvert.ipynb
 manuscript/figures/*-eps-converted-to.pdf
 manuscript/output/
 .env
