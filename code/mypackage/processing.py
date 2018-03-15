@@ -30,7 +30,6 @@ class LinearTrend():
         """
         return self.linear_coef + year*self.angular_coef
 
-
     def fit(self, year, temperature, uncertainty):
         """
         Fit a linear trend to the temperature time series.

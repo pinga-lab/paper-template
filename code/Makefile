@@ -20,12 +20,14 @@ PYTEST_COV_ARGS = --cov-report=term-missing
 # notebook.
 RUN = bash run_notebook.sh
 
+
 # TARGETS
 ###############################################################################
 
 help:
 	@echo "Commands:"
 	@echo ""
+	@echo "  all        runs 'build', 'test', and 'figures'"
 	@echo "  build      build and install the package"
 	@echo "  test       run the test suite (including doctests)"
 	@echo "  coverage   calculate test coverage"
@@ -37,14 +39,28 @@ help:
 	@echo "  figures    execute all of the figure generating notebooks"
 	@echo ""
 
-all: check build test results figures
+
+# Clean does not remove results or figure files to avoid accidentally deleting
+# the results of long running computations.
+clean:
+	find . -name "*.pyc" -exec rm -v {} \;
+	rm -rvf build dist MANIFEST *.egg-info __pycache__ .coverage .cache
+
+
+# Run all steps to generate the final figures. Results files are generated
+# based on the figure requirements (see below).
+all: build test figures
 
 
 # Generating results
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Main target for producing all results. Add results files as dependencies to
+# include them in the build.
 results: $(RESDIR)/hawaii-trend.csv
 
+
+# Build a result file from a notebook and a data file
 $(RESDIR)/hawaii-trend.csv: $(NBDIR)/estimate-hawaii-trend.ipynb $(DATADIR)/hawaii-TAVG-Trend.txt
 	$(RUN) $<
 
@@ -53,8 +69,12 @@ $(RESDIR)/hawaii-trend.csv: $(NBDIR)/estimate-hawaii-trend.ipynb $(DATADIR)/hawa
 # Generating figures
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Main target for generating figures. Include figure files as dependencies to
+# include them in the build.
 figures: $(FIGDIR)/hawaii-trend.eps
 
+
+# Generate a figure file from a notebook and a results file.
 $(FIGDIR)/hawaii-trend.eps: $(NBDIR)/figure-hawaii-trend.ipynb $(RESDIR)/hawaii-trend.csv
 	$(RUN) $<
 
@@ -70,7 +90,6 @@ test:
 	pytest $(PYTEST_ARGS) $(PACKAGE) $(TESTDIR)
 
 coverage:
-	# Run a tmp folder to make sure the tests are run on the installed version
 	pytest $(PYTEST_COV_ARGS) --cov=$(PACKAGE) $(PYTEST_ARGS) $(PACKAGE) $(TESTDIR)
 
 check: pep8 lint
@@ -80,7 +99,3 @@ pep8:
 
 lint:
 	pylint $(PACKAGE) setup.py
-
-clean:
-	find . -name "*.pyc" -exec rm -v {} \;
-	rm -rvf build dist MANIFEST *.egg-info __pycache__ .coverage .cache
