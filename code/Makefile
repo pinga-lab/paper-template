@@ -16,8 +16,10 @@ NBDIR = notebooks
 PYTEST_ARGS = --doctest-modules -v
 PYTEST_COV_ARGS = --cov-report=term-missing
 
-# Execute a notebook on the command line. Doesn't overwrites the content of the
-# notebook.
+# Execute a notebook on the command line. Modifies the notebook inplace so the
+# final execution order will be linear (from top to bottom). Running notebooks
+# like this helps ensure that the final results are not a product of a
+# non-linear execution order that can't be reproduced.
 RUN = bash run_notebook.sh
 
 
@@ -60,9 +62,12 @@ all: build test figures
 results: $(RESDIR)/hawaii-trend.csv
 
 
-# Build a result file from a notebook and a data file
+# Build a result file from a notebook and a data file.
+# Execution modifies a notebook, so the time stamp will be later than the
+# target. touch the target to make sure it's always newer than the dependency.
 $(RESDIR)/hawaii-trend.csv: $(NBDIR)/estimate-hawaii-trend.ipynb $(DATADIR)/hawaii-TAVG-Trend.txt
 	$(RUN) $<
+	@touch $@
 
 
 
@@ -77,6 +82,7 @@ figures: $(FIGDIR)/hawaii-trend.eps
 # Generate a figure file from a notebook and a results file.
 $(FIGDIR)/hawaii-trend.eps: $(NBDIR)/figure-hawaii-trend.ipynb $(RESDIR)/hawaii-trend.csv
 	$(RUN) $<
+	@touch $@
 
 
 
