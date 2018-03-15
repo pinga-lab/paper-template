@@ -1,7 +1,7 @@
 *~
 .*~
 *.pyc
-*-eps-converted-to-pdf.pdf
-manuscript/output/*
+manuscript/figures/*-eps-converted-to.pdf
+manuscript/output/
 .env
-code/.ipynb_checkpoints/
+*/.ipynb_checkpoints/
